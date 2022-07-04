@@ -34,6 +34,13 @@
     // detect device
     const isMac = window.navigator.platform.toLowerCase().includes("mac");
     const isWindows = window.navigator.platform.toLowerCase().includes("win");
+    
+    let mobileTestOutput = null;
+    let isMobile = window.matchMedia;
+    if (isMobile) {
+      let match_mobile = isMobile("(pointer:coarse)");
+      let mobileTestOutput = match_mobile.matches;
+    }
 
     document.getElementById("app").innerHTML = `
       <h1>Browser checking</h1>
@@ -50,6 +57,7 @@
       isMac - ${isMac}<br /><hr>
       isWindows - ${isWindows}<br /><hr>
       isMobileSafari - ${isMobileSafari}<br /><hr>
+      mobileTestOutput - ${test ? test : null}
       </div>
     `;
     
