@@ -19,7 +19,7 @@ const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA);
 
 // detect device
 const isMac = window.navigator.platform.toLowerCase().includes("mac");
-const isWindows = window.navigator.platform.toLowerCase().includes("windows");
+const isWindows = window.navigator.platform.toLowerCase().includes("win");
 
 export const getDeviceBools = () => {
   return {
