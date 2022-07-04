@@ -39,7 +39,7 @@
     let isMobile = window.matchMedia;
     if (isMobile) {
       let match_mobile = isMobile("(pointer:coarse)");
-      let mobileTestOutput = match_mobile.matches;
+      mobileTestOutput = match_mobile.matches;
     }
 
     document.getElementById("app").innerHTML = `
@@ -57,7 +57,7 @@
       isMac - ${isMac}<br /><hr>
       isWindows - ${isWindows}<br /><hr>
       isMobileSafari - ${isMobileSafari}<br /><hr>
-      mobileTestOutput - ${test ? test : null}
+      mobileTestOutput - ${mobileTestOutput ? mobileTestOutput : null}
       </div>
     `;
     
