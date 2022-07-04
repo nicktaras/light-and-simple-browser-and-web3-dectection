@@ -30,10 +30,6 @@
     const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA)
     const isSafari = (window.safari) ? true : false;
 
-    // detect OS
-    const isAndroid = UA && UA.indexOf("android") > 0;
-    const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA);
-
     // detect device
     const isMac = window.navigator.platform.toLowerCase().includes("mac");
     const isWindows = window.navigator.platform.toLowerCase().includes("win");
