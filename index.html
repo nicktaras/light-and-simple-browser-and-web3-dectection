@@ -29,6 +29,7 @@
     const isAndroid = UA && UA.indexOf('android') > 0
     const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA)
     const isSafari = (window.safari) ? true : false;
+    const isMobileSafari = !ua.match(/CriOS/i);
 
     // detect device
     const isMac = window.navigator.platform.toLowerCase().includes("mac");
@@ -48,6 +49,7 @@
       isSafari - ${isSafari}<br /><hr>
       isMac - ${isMac}<br /><hr>
       isWindows - ${isWindows}<br /><hr>
+      isMobileSafari - ${isMobileSafari}<br /><hr>
       </div>
     `;
     
