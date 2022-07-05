@@ -35,11 +35,7 @@
     const isMac = window.navigator.platform.toLowerCase().includes("mac");
     const isWindows = window.navigator.platform.toLowerCase().includes("win");
     
-    let isIOSWebView = false;
-    let isAndroidWebView = /(Version\/\d+.*\/\d+.0.0.0 Mobile|; ?wv|(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari))/i.test(navigator.userAgent);
-    let isIosWebView = false;
-    safari = /safari/.test( UA ), ios = /iphone|ipod|ipad/.test( UA );
-    if( ios && !safari ) isIOSWebView = true;
+    let isWebView = /(Version\/\d+.*\/\d+.0.0.0 Mobile|; ?wv|(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari))/i.test(navigator.userAgent);
     
     const isMetaMask = (ethereum.isMetaMask === true);
     
@@ -75,16 +71,15 @@
       isWindows - ${isWindows}<br /><hr>
       isMobileSafari - ${isMobileSafari}<br /><hr>
       isTouchDevice - ${isTouchDevice ? isTouchDevice : null}<br /><hr>
-      isIOSWebView - ${isIOSWebView}<br /><hr>
-      isAndroidWebView - ${isAndroidWebView}<br /><hr>
+      isWebView - ${isWebView}<br /><hr>
       isAndroidMetaMask: ${isTouchDevice && isMetaMask && isChrome && isAndroid}<br /><hr>
-      isAndroidAlphaWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isAndroidWebView}<br /><hr>
-      isAndroidMyEthereumWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isAndroidWebView}<br /><hr>
-      isAndroidImToken: ${isChrome && isAndroid && isMobileSafari&& isTouchDevice}<br /><hr>
+      isAndroidAlphaWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isWebView}<br /><hr>
+      isAndroidMyEthereumWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isWebView}<br /><hr>
+      isAndroidImToken: ${isChrome && isAndroid && isMobileSafari && isTouchDevice}<br /><hr>
       isIosMetaMask: ${isMetaMask && isIosWebView}<br /><hr>
-      isIosAlphaWallet: ${isChrome && isMobileSafari && isTouchDevice && isIosWebView}<br /><hr>
-      isIosMyEthereumWallet: ${isChrome && isMobileSafari && isTouchDevice && isIosWebView}<br /><hr>
-      isIosImToken: ${isChrome && isMobileSafari && isTouchDevice && isIosWebView}<br /><hr>
+      isIosAlphaWallet: ${isChrome && isTouchDevice && isWebView}<br /><hr>
+      isIosMyEthereumWallet: ${isChrome && isMobileSafari && isTouchDevice && isWebView}<br /><hr>
+      isIosImToken: ${isChrome && isMobileSafari && isTouchDevice && isWebView}<br /><hr>
       </div>
     `;
     
