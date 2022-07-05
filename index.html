@@ -76,9 +76,10 @@
       isMEW - ${ethereum.isTrust && ethereum.isMetaMask}<br /><hr>
       isRainbowWallet - ${ethereum.isRainbowWallet}<br /><hr>
       ImTokenWallet - ${ethereum.ImTokenWallet}<br /><hr>
-      isCoinBase - ${ethereum.isToshi}<br /><hr>
+      isCoinBase - ${ethereum.isToshi || ethereum.isCoinBase }<br /><hr>
       isGoWallet - ${ethereum.isGoWallet}<br /><hr>
       isStatusWallet - ${ethereum.isStatus}<br /><hr>
+      isTrustWallet - ${ethereum.isTrust}<br /><hr>
       </div>
     `;
  
