@@ -9,7 +9,6 @@ const isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
 const isPhantomJS = UA && /phantomjs/.test(UA);
 const isFF = UA && UA.match(/firefox\/(\d+)/);
 const isSafari = window.safari ? true : false;
-const isMobileSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
 
 // detect OS
 const isAndroid = UA && UA.indexOf("android") > 0;
@@ -33,12 +32,18 @@ if (isMobile) {
   isTouchDevice = match_mobile.matches;
 }
 
-// detect MetaMask
-const isMetaMask = ethereum.isMetaMask === true;
+// detect wallet
+if(typeof ethereum === 'undefined') ethereum = {};
+const isMetaMask = (isTouchDevice && ethereum.isMetaMask);
+const isAlphaWallet = (isTouchDevice && ethereum.isAlphaWallet);
+const isTrust = (isTouchDevice && ethereum.isTrust);
+const isStatusWallet = (isTouchDevice && ethereum.isStatusWallet);
+const isGoWallet = (isTouchDevice && ethereum.isGoWallet);
+const isMyEthereumWallet = (isTouchDevice && ethereum.isTrust && ethereum.isMetaMask);
 
 export const getDeviceBools = () => {
   return {
-    "browser":
+    "browser": {
       "isIE": isIE,
       "isIE9": isIE9,
       "isEdge": isEdge,
@@ -61,18 +66,14 @@ export const getDeviceBools = () => {
     },
     "touchDevice": {
       isTouchDevice: isTouchDevice 
+    },
+    "walletBrowser": {
+      isMetaMask,
+      isAlphaWallet,
+      isMyEthereumWallet,
+      isTrust,
+      isGoWallet,
+      isStatusWallet,
     }
-    "walletBrowserAndroid": {
-      isMetaMask: (isTouchDevice && isMetaMask && isChrome && isAndroid), 
-      isAlphaWallet: (isChrome && isAndroid && isMobileSafari && mobileTestOutput && isAndroidWebView),
-      isMyEthereumWallet: (isChrome && isAndroid && isMobileSafari && isTouchDevice && isAndroidWebView),
-      isImToken: (isChrome && isAndroid && isMobileSafari&& isTouchDevice)
-    },
-    "walletBrowserIos": {
-      isMetaMask: (isMetaMask && isIosWebView),
-      isAlphaWallet: (isChrome && isMobileSafari && isTouchDevice && isIosWebView),
-      isMyEthereumWallet: (isChrome && isMobileSafari && isTouchDevice && isIosWebView),
-      isImToken: (isChrome && isMobileSafari && isTouchDevice && isIosWebView)
-    },
   }
 }
