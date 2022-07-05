@@ -38,14 +38,13 @@
     let isIOSWebView = false;
     let isAndroidWebView = /(Version\/\d+.*\/\d+.0.0.0 Mobile|; ?wv|(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari))/i.test(navigator.userAgent);
     
-    // For detecting if MM
-    // ethereum.isMetaMask==true
+    const isMetaMask = (ethereum.isMetaMask === true);
     
-    let mobileTestOutput = null;
+    let isTouchDevice = null;
     let isMobile = window.matchMedia;
     if (isMobile) {
       let match_mobile = isMobile("(pointer:coarse)");
-      mobileTestOutput = match_mobile.matches;
+      isTouchDevice = match_mobile.matches;
     }
     
     safari = /safari/.test( UA ),
@@ -75,7 +74,14 @@
       mobileTestOutput - ${mobileTestOutput ? mobileTestOutput : null}<br /><hr>
       isIOSWebView - ${isIOSWebView}<br /><hr>
       isAndroidWebView - ${isAndroidWebView}
-      
+      isAndroidMetaMask: ${isTouchDevice && isMetaMask && isChrome && isAndroid},
+      isAndroidAlphaWallet: ${isChrome && isAndroid && isMobileSafari && mobileTestOutput && isAndroidWebView},
+      isAndroidMyEthereumWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isAndroidWebView},
+      isAndroidImToken: ${isChrome && isAndroid && isMobileSafari&& isTouchDevice},
+      isIosMetaMask: ${isMetaMask && isIosWebView},
+      isIosAlphaWallet: ${isChrome && isMobileSafari && isTouchDevice && isIosWebView},
+      isIosMyEthereumWallet: ${isChrome && isMobileSafari && isTouchDevice && isIosWebView},
+      isIosImToken: ${isChrome && isMobileSafari && isTouchDevice && isIosWebView}
       </div>
     `;
     
