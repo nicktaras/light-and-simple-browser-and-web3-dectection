@@ -19,10 +19,7 @@ const isMac = window.navigator.platform.toLowerCase().includes("mac");
 const isWindows = window.navigator.platform.toLowerCase().includes("win");
 
 // detect webview
-let isAndroidWebView = /(Version\/\d+.*\/\d+.0.0.0 Mobile|; ?wv|(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari))/i.test(navigator.userAgent);
-let isIosWebView = false;
-safari = /safari/.test( UA ), ios = /iphone|ipod|ipad/.test( UA );
-if( ios && !safari ) isIOSWebView = true;
+const isWebView = /(Version\/\d+.*\/\d+.0.0.0 Mobile|; ?wv|(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari))/i.test(navigator.userAgent);
 
 // detect if touch device
 let isTouchDevice = false;
@@ -33,7 +30,7 @@ if (isMobile) {
 }
 
 // detect wallet
-if(typeof ethereum === 'undefined') ethereum = {};
+if(typeof ethereum === 'undefined') var ethereum:any = {};
 const isMetaMask = (isTouchDevice && ethereum.isMetaMask);
 const isAlphaWallet = (isTouchDevice && ethereum.isAlphaWallet);
 const isTrust = (isTouchDevice && ethereum.isTrust);
@@ -41,7 +38,7 @@ const isStatusWallet = (isTouchDevice && ethereum.isStatusWallet);
 const isGoWallet = (isTouchDevice && ethereum.isGoWallet);
 const isMyEthereumWallet = (isTouchDevice && ethereum.isTrust && ethereum.isMetaMask);
 
-export const getDeviceBools = () => {
+export const getBrowserData = () => {
   return {
     "browser": {
       "isIE": isIE,
@@ -61,8 +58,7 @@ export const getDeviceBools = () => {
       "isWindows": isWindows
     },
     "webView": {
-      isAndroidWebView: isAndroidWebView,
-      isIosWebView: isIosWebView
+      isWebView
     },
     "touchDevice": {
       isTouchDevice: isTouchDevice 
