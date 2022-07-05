@@ -38,6 +38,9 @@
     let isIOSWebView = false;
     let isAndroidWebView = /(Version\/\d+.*\/\d+.0.0.0 Mobile|; ?wv|(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari))/i.test(navigator.userAgent);
     
+    // For detecting if MM
+    // ethereum.isMetaMask==true
+    
     let mobileTestOutput = null;
     let isMobile = window.matchMedia;
     if (isMobile) {
