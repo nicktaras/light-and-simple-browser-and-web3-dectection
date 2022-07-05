@@ -77,10 +77,12 @@
       isAndroidMyEthereumWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isWebView}<br /><hr>
       isAndroidImToken: ${isChrome && isAndroid && isMobileSafari && isTouchDevice}<br /><hr>
       isIosMetaMask: ${isMetaMask && isWebView}<br /><hr>
-      isIosAlphaWallet: ${window.isAlphaWallet}<br /><hr>
+      isIosAlphaWallet: ${ethereum.isAlphaWallet}<br /><hr>
       isIosMyEthereumWallet: ${isMobileSafari && isTouchDevice && isWebView}<br /><hr>
       isIosImToken: ${isMobileSafari && isTouchDevice && isWebView}<br /><hr>
       User Agent to debug: ${window.navigator.userAgent}
+      Debug: AW ${ethereum.isAlphaWallet} MEW ${ethereum.isMyEthereumWallet} MM ${ethereum.isMetaMask} RW ${ethereum.isRainbowWallet} TW ${ethereum.isTrustWallet}
+      T ${ethereum.isTrust} MEW ${ethereum.isMew} IM ${ethereum.ImToken} IMW ${ethereum.ImTokenWallet}
       </div>
     `;
     
