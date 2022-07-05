@@ -35,11 +35,22 @@
     const isMac = window.navigator.platform.toLowerCase().includes("mac");
     const isWindows = window.navigator.platform.toLowerCase().includes("win");
     
+    let isWebView = false;
+    
     let mobileTestOutput = null;
     let isMobile = window.matchMedia;
     if (isMobile) {
       let match_mobile = isMobile("(pointer:coarse)");
       mobileTestOutput = match_mobile.matches;
+    }
+    
+    safari = /safari/.test( UA ),
+    ios = /iphone|ipod|ipad/.test( UA );
+
+    if( ios ) {
+        if ( !safari ) {
+           isWebView = true;
+        };
     }
 
     document.getElementById("app").innerHTML = `
@@ -58,6 +69,7 @@
       isWindows - ${isWindows}<br /><hr>
       isMobileSafari - ${isMobileSafari}<br /><hr>
       mobileTestOutput - ${mobileTestOutput ? mobileTestOutput : null}
+      isIOSWebView - ${isWebView}
       </div>
     `;
     
