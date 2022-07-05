@@ -71,11 +71,11 @@
       isMac - ${isMac}<br /><hr>
       isWindows - ${isWindows}<br /><hr>
       isMobileSafari - ${isMobileSafari}<br /><hr>
-      mobileTestOutput - ${mobileTestOutput ? mobileTestOutput : null}<br /><hr>
+      isTouchDevice - ${isTouchDevice ? isTouchDevice : null}<br /><hr>
       isIOSWebView - ${isIOSWebView}<br /><hr>
       isAndroidWebView - ${isAndroidWebView}
       isAndroidMetaMask: ${isTouchDevice && isMetaMask && isChrome && isAndroid},
-      isAndroidAlphaWallet: ${isChrome && isAndroid && isMobileSafari && mobileTestOutput && isAndroidWebView},
+      isAndroidAlphaWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isAndroidWebView},
       isAndroidMyEthereumWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isAndroidWebView},
       isAndroidImToken: ${isChrome && isAndroid && isMobileSafari&& isTouchDevice},
       isIosMetaMask: ${isMetaMask && isIosWebView},
