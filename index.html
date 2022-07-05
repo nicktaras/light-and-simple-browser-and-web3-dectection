@@ -35,7 +35,7 @@
     const isMac = window.navigator.platform.toLowerCase().includes("mac");
     const isWindows = window.navigator.platform.toLowerCase().includes("win");
     
-    let isWebView = false;
+    let isIOSWebView = false;
     
     let mobileTestOutput = null;
     let isMobile = window.matchMedia;
@@ -49,7 +49,7 @@
 
     if( ios ) {
         if ( !safari ) {
-           isWebView = true;
+           isIOSWebView = true;
         };
     }
 
@@ -68,8 +68,8 @@
       isMac - ${isMac}<br /><hr>
       isWindows - ${isWindows}<br /><hr>
       isMobileSafari - ${isMobileSafari}<br /><hr>
-      mobileTestOutput - ${mobileTestOutput ? mobileTestOutput : null}
-      isIOSWebView - ${isWebView}
+      mobileTestOutput - ${mobileTestOutput ? mobileTestOutput : null}<br /><hr>
+      isIOSWebView - ${isIOSWebView}<br /><hr>
       </div>
     `;
     
