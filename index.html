@@ -72,20 +72,16 @@
       isMobileSafari - ${isMobileSafari}<br /><hr>
       isTouchDevice - ${isTouchDevice ? isTouchDevice : null}<br /><hr>
       isWebView - ${isWebView}<br /><hr>
-      isAndroidMetaMask: ${isTouchDevice && isMetaMask && isChrome && isAndroid}<br /><hr>
-      isAndroidAlphaWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isWebView}<br /><hr>
-      isAndroidMyEthereumWallet: ${isChrome && isAndroid && isMobileSafari && isTouchDevice && isWebView}<br /><hr>
-      isAndroidImToken: ${isChrome && isAndroid && isMobileSafari && isTouchDevice}<br /><hr>
-      isIosMetaMask: ${isMetaMask && isWebView}<br /><hr>
-      isIosAlphaWallet: ${ethereum.isAlphaWallet}<br /><hr>
-      isIosMyEthereumWallet: ${isMobileSafari && isTouchDevice && isWebView}<br /><hr>
-      isIosImToken: ${isMobileSafari && isTouchDevice && isWebView}<br /><hr>
-      User Agent to debug: ${window.navigator.userAgent}
-      Debug: AW ${ethereum.isAlphaWallet} MEW ${ethereum.isMyEthereumWallet} MM ${ethereum.isMetaMask} RW ${ethereum.isRainbowWallet} TW ${ethereum.isTrustWallet}
-      T ${ethereum.isTrust} MEW ${ethereum.isMew} IM ${ethereum.ImToken} IMW ${ethereum.ImTokenWallet}
+      isAlphaWallet - ${ethereum.isAlphaWallet}<br /><hr>
+      isMEW - ${ethereum.isTrust && ethereum.isMetaMask}<br /><hr>
+      isRainbowWallet - ${ethereum.isRainbowWallet}<br /><hr>
+      ImTokenWallet - ${ethereum.ImTokenWallet}<br /><hr>
+      isCoinBase - ${ethereum.isToshi}<br /><hr>
+      isGoWallet - ${ethereum.isGoWallet}<br /><hr>
+      isStatusWallet - ${ethereum.isStatus}<br /><hr>
       </div>
     `;
-    
+ 
   </script>
   
 </body>
